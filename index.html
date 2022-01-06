@@ -71,18 +71,39 @@
                   <label for="initials"
                     >Voorletters<span class="asterisk">*</span></label
                   >
-                  <input type="text" id="initials" name="initials" required />
+                  <input
+                    type="text"
+                    id="initials"
+                    name="initials"
+                    required
+                    maxlength="5"
+                    onkeypress="return /[a-z]/i.test(event.key)"
+                  />
+                  <!-- Method above from: https://stackoverflow.com/questions/19508183/how-to-force-input-to-only-allow-alpha-letters -->
                 </div>
                 <div class="inner">
                   <label for="infix">Tussenvoegsel</label>
-                  <input type="text" id="infix" name="infix" />
+                  <input
+                    type="text"
+                    id="infix"
+                    name="infix"
+                    maxlength="10"
+                    onkeypress="return /[a-z]/i.test(event.key)"
+                  />
                 </div>
               </div>
 
-              <label for="lname"
+              <label for="lastname"
                 >Achternaam<span class="asterisk">*</span></label
               >
-              <input type="text" id="lname" name="lname" required />
+              <input
+                type="text"
+                id="lastname"
+                name="lastname"
+                required
+                maxlength="30"
+                onkeypress="return /[a-z]/i.test(event.key)"
+              />
 
               <!-- Based on these 2, the next 2 will need to be returned from an API -->
               <div class="short">
@@ -90,12 +111,19 @@
                   <label for="postcode"
                     >Postcode<span class="asterisk">*</span></label
                   >
-                  <input type="text" id="postcode" name="postcode" required />
+                  <input
+                    type="text"
+                    id="postcode"
+                    name="postcode"
+                    required
+                    maxlength="6"
+                  />
                 </div>
                 <div class="inner">
                   <label for="number"
                     >Huisnummer<span class="asterisk">*</span></label
                   >
+                  <!-- Length needs control -->
                   <input type="number" id="number" name="number" required />
                 </div>
               </div>
@@ -128,6 +156,7 @@
                 name="email"
                 placeholder="account@email.com"
                 required
+                max="30"
               />
             </fieldset>
 
@@ -149,6 +178,9 @@
           </form>
         </div>
       </div>
+
+      <!-- TESTING ONLY -->
+      <button onclick="submitData()">Log data</button>
     </main>
 
     <footer>
