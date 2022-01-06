@@ -61,3 +61,44 @@ const getAddress = () => {
 
   xhr.send();
 };
+
+/* SUBMIT DATA - doesn't work*/
+const sendFormData = () => {
+  var url = 'https://run.mocky.io/v3/c47de24c-d67b-40ac-a220-08fff5bdbf9d';
+
+  var xhr = new XMLHttpRequest();
+  xhr.open('POST', url);
+
+  xhr.setRequestHeader('Content-Type', 'application/json');
+
+  xhr.onreadystatechange = function () {
+    if (xhr.readyState === 4) {
+      console.log(xhr.status);
+      console.log(xhr.responseText);
+    }
+  };
+
+  const initials = document.getElementById('initials').value.toUpperCase();
+  const infix = document.getElementById('infix').value;
+  const lastname = document
+    .getElementById('lastname')
+    .value.replace(/(^\w|\s\w)/g, (m) => m.toUpperCase());
+  const postcode = document.getElementById('postcode').value;
+  const number = document.getElementById('number').value;
+  const street = document.getElementById('street').value;
+  const city = document.getElementById('city').value;
+  const email = document.getElementById('email').value;
+  const data = `{
+    "initials": ${initials},
+    "infix": ${infix},
+    "lastname": ${lastname},
+    "postcode": ${postcode},
+    "number": ${number},
+    "street": ${street},
+    "city": ${city},
+    "email": ${email}
+  }`;
+  /* Testing */
+  console.log(data);
+  xhr.send(data);
+};
