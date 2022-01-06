@@ -1,0 +1,87 @@
+/* Importing Incentro font */
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,400;0,700;1,400&display=swap');
+
+/* Color variables */
+:root {
+  --accent-color: #fc5304;
+  --text-color: #fff;
+  --border-color: #cdd2d4;
+}
+
+/* Reset sizing */
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  line-height: 1.5;
+  font-family: 'Work Sans', sans-serif;
+  font-size: 16px;
+}
+
+/* HEADER (+ general footer) */
+header,
+footer {
+  background-color: var(--accent-color);
+  height: 15vh;
+  width: 100%;
+  padding: 1rem;
+  text-align: center;
+}
+
+header {
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* MAIN */
+main {
+  background-color: #fff;
+  padding: 1rem;
+  background-image: url('assets/office.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  height: 100vh;
+}
+
+/* FOOTER */
+footer {
+  bottom: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  color: var(--text-color);
+  letter-spacing: 1px;
+}
+
+#footer-logo {
+  padding-left: 5%;
+}
+
+#social-links {
+  color: white;
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+}
+
+.fab,
+.fas {
+  color: white;
+  width: 2rem;
+}
+
+@media only screen and (max-width: 1000px) {
+  footer {
+    flex-direction: column;
+  }
+}
