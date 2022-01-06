@@ -52,25 +52,28 @@ main {
   background-attachment: fixed;
 }
 
-/* Span for labels */
+/* Span for labels and highlighted text in the title area*/
 .asterisk,
 #highlight {
   color: var(--accent-color);
   font-weight: 800;
 }
 
+/* Wraps all content within main */
 #container {
   display: block;
   margin: auto;
   padding: 0 3rem;
 }
 
+/* Title area */
 #header-container {
   max-width: 30rem;
   margin: auto;
   text-align: center;
   padding: 1rem 0;
   color: black;
+  /* Not every browser supports backdrop-filter, would need fallbacks/finetuning */
   backdrop-filter: blur(3px);
 }
 
@@ -81,27 +84,7 @@ main {
   font-weight: bold;
 }
 
-@media only screen and (min-width: 1035px) {
-  #container {
-    max-width: 1000px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    padding: 3rem;
-  }
-
-  #header-text {
-    text-align: left;
-    padding: 3rem;
-  }
-}
-
-@media only screen and (max-width: 400px) {
-  #header-text {
-    font-size: 22px;
-  }
-}
-
+/* From wrapper and positioning */
 #form-container {
   max-width: 600px;
   margin: auto;
@@ -119,6 +102,7 @@ main {
   font-style: italic;
 }
 
+/* For input fields that are shorter, thus can be next to each other on bigger screens */
 .short {
   display: flex;
   justify-content: flex-start;
@@ -128,22 +112,14 @@ main {
   justify-content: space-between;
 }
 
+/* Inner div inside .short-s, for flex display of labels + input fields */
 .inner {
   display: flex;
   flex-direction: column;
   width: 49%;
 }
 
-@media only screen and (max-width: 600px) {
-  .short {
-    display: block;
-  }
-
-  .inner {
-    width: 100%;
-  }
-}
-
+/* Wrapping input area */
 fieldset {
   border: none;
   display: flex;
@@ -157,6 +133,7 @@ label {
   padding-top: 0.5rem;
 }
 
+/* Only using text, number and email fields, so not specifying anything with further selectors for now */
 input {
   font-family: 'Work Sans', sans-serif;
   padding: 0.8rem 0.8rem 0.8rem 0;
@@ -166,15 +143,18 @@ input {
   background: rgba(255, 255, 255, 0.555);
 }
 
+/* Outline of input field in use */
 input:focus {
   outline-style: 2px solid;
 }
 
+/* Disabled / readonly, data will be pulled from an API, user cannot interact with these */
 input#street,
 input#city {
   outline: none;
 }
 
+/* Styling largely based on the button on https://incentro.nl/nl-nl/ */
 #submitbtn {
   padding: 2.5rem 1rem;
   font-size: 20px;
@@ -185,7 +165,9 @@ input#city {
   background-color: var(--text-color);
   color: var(--accent-color);
   transition: all 0.5s;
+  /* To align text and arrow next to each other*/
   display: flex;
+  flex-direction: row;
 }
 
 #submitbtn:hover {
@@ -194,11 +176,14 @@ input#city {
   transition: all 0.5s;
 }
 
+/* Needs fix */
+#submitbtn:focus,
 #submitbtn:active {
-  background-color: #fc5304a9;
-  border-color: #fc5304a9;
+  outline: 2px solid var(--accent-color);
+  outline-offset: 5px;
 }
 
+/* Arrow */
 .btnicon {
   display: block;
   height: auto;
@@ -221,6 +206,7 @@ footer {
   padding-left: 5%;
 }
 
+/* List containing social media icons */
 #social-links {
   color: white;
   list-style: none;
@@ -228,14 +214,55 @@ footer {
   flex-direction: row;
 }
 
+/* FontAwesome icon classes */
 .fab,
 .fas {
   color: white;
   width: 2rem;
 }
 
+/* Media queries for responsive design - not finetuned, especially the input fields need work */
+
+/* Title text on small screens */
+@media only screen and (max-width: 455px) {
+  #header-text,
+  #form-title {
+    font-size: 22px;
+  }
+}
+
+/* Limiting main content width */
+@media only screen and (min-width: 1035px) {
+  #container {
+    max-width: 1000px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 3rem;
+  }
+
+  #header-text {
+    text-align: left;
+    padding: 3rem;
+  }
+}
+
+/* Aligning short input fields vertically on smaller screens */
+@media only screen and (max-width: 600px) {
+  .short {
+    display: block;
+  }
+
+  .inner {
+    width: 100%;
+  }
+}
+
+/* To align footer items vertically */
 @media only screen and (max-width: 1000px) {
   footer {
+    height: 30vh;
     flex-direction: column;
+    align-items: center;
   }
 }
