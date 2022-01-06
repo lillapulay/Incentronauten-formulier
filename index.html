@@ -34,12 +34,122 @@
 
   <body>
     <header>
+      <!-- Company logo linking to the website -->
       <figure>
-        <img src="assets/logo.png" alt="Incentro logo" id="header-logo" />
+        <a href="https://incentro.nl/nl-nl/" target="_blank"
+          ><img src="assets/logo.png" alt="Incentro logo" id="header-logo"
+        /></a>
       </figure>
     </header>
 
-    <main></main>
+    <main>
+      <!-- Title area -->
+      <div id="container">
+        <div id="header-container">
+          <p id="header-text">
+            We zijn echt geïnteresseerd in <br />
+            <span id="highlight"> wie je bent</span>. <br />
+            Wil je enkele details met ons delen?
+          </p>
+        </div>
+
+        <!-- Form -->
+        <div id="form-container">
+          <form>
+            <div id="form-header">
+              <h1 id="form-title">Incentronauten Formulier</h1>
+              <p id="info">
+                Velden gemarkeerd met een <span class="asterisk">*</span> zijn
+                verplicht.
+              </p>
+            </div>
+
+            <!-- Input fields and labels -->
+            <fieldset>
+              <div class="short">
+                <div class="inner">
+                  <label for="initials"
+                    >Voorletters<span class="asterisk">*</span></label
+                  >
+                  <input type="text" id="initials" name="initials" required />
+                </div>
+                <div class="inner">
+                  <label for="infix">Tussenvoegsel</label>
+                  <input type="text" id="infix" name="infix" />
+                </div>
+              </div>
+
+              <label for="lname"
+                >Achternaam<span class="asterisk">*</span></label
+              >
+              <input type="text" id="lname" name="lname" required />
+
+              <!-- Based on these 2, the next 2 will need to be returned from an API -->
+              <div class="short">
+                <div class="inner">
+                  <label for="postcode"
+                    >Postcode<span class="asterisk">*</span></label
+                  >
+                  <input type="text" id="postcode" name="postcode" required />
+                </div>
+                <div class="inner">
+                  <label for="number"
+                    >Huisnummer<span class="asterisk">*</span></label
+                  >
+                  <input type="number" id="number" name="number" required />
+                </div>
+              </div>
+
+              <!-- Needs to be returned by an API -->
+              <!-- DISABLE USER INPUT - readonly or disabled? -->
+              <label for="street">Straat</label>
+              <input
+                type="text"
+                id="street"
+                name="street"
+                placeholder="Vul eerst uw postcode en huisnummer in."
+                readonly
+                required
+              />
+              <label for="city">Stad</label>
+              <input
+                type="text"
+                id="city"
+                name="city"
+                placeholder="Vul eerst uw postcode en huisnummer in."
+                readonly
+                required
+              />
+
+              <label for="email">E-mail<span class="asterisk">*</span></label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="account@email.com"
+                required
+              />
+            </fieldset>
+
+            <button id="submitbtn">
+              <span id="btntext">Here we go!</span>
+
+              <!-- The arrow from the button on https://incentro.nl/nl-nl/ -->
+              <svg
+                class="btnicon"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="currentColor"
+                viewBox="0 0 512 512"
+              >
+                <path
+                  d="M128 104.3v303.4c0 6.4 6.5 10.4 11.7 7.2l240.5-151.7c5.1-3.2 5.1-11.1 0-14.3L139.7 97.2c-5.2-3.3-11.7.7-11.7 7.1z"
+                ></path>
+              </svg>
+            </button>
+          </form>
+        </div>
+      </div>
+    </main>
 
     <footer>
       <figure>
